@@ -13,18 +13,7 @@ class User extends React.Component {
     }
 
     async componentDidMount(){
-        let data = await axios.get("http://localhost:7500/record/getAllRecords").then(response=>{
-            console.log(response.data.data)
-            return response.data.data
-        })
-
-        this.setState({
-            data:data
-        })
-    }
-
-    async componentDidUpdate(){
-        let data = await axios.get("http://localhost:7500/record/getAllRecords").then(response=>{
+        let data = await axios.get("http://localhost:7500/user/getAllUsers").then(response=>{
             console.log(response.data.data)
             return response.data.data
         })
@@ -44,33 +33,22 @@ class User extends React.Component {
                 <thead>
                     <tr style={{textAlign:"center"}}>
                     <th>Nomor</th>
-                    <th>Nama</th>
-                    <th>User ID</th>
-                    <th>Senjata</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>User Id</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.data.map(({status,tanggal,user_id})=>{
+                    {this.state.data.map(({username,email,user_id})=>{
                         index+=1;
-                        if(!status){
-                            return(
-                                <tr style={{textAlign:"center"}}>
+                        return(
+                            <tr style={{textAlign:"center"}}>
                                 <td>{index}</td>
-                                <td style={{color:"red"}}>Senjata Keluar</td>
-                                <td>{tanggal}</td>
+                                <td >{username}</td>
+                                <td>{email}</td>
                                 <td>{user_id}</td>
                             </tr>
-                            )
-                        }else{
-                            return(
-                                <tr style={{textAlign:"center"}}>
-                                <td>{index}</td>
-                                <td  style={{color:"green"}}>Senjata Masuk</td>
-                                <td>{tanggal}</td>
-                                <td>{user_id}</td>
-                            </tr>
-                            )
-                        }
+                        )
                     })
                 }
                 </tbody>
