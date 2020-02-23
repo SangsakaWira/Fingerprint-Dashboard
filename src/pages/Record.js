@@ -32,6 +32,23 @@ class Record extends React.Component {
         })
     }
 
+    // async componentDidUpdate(){
+    //     let data = await axios.get("http://localhost:7500/record/getAllRecords").then(response=>{
+    //         // console.log(response.data.data)
+    //         return response.data.data
+    //     })
+
+    //     let user = await axios.get("http://localhost:7500/user/getAllUsers").then(response=>{
+    //         // console.log(response.data.data)
+    //         return response.data.data
+    //     })
+
+    //     this.setState({
+    //         data:data,
+    //         users:user
+    //     })
+    // }
+
     async onChangeUser(e){
         let data;
         if(e.target.value === "2"){
@@ -93,8 +110,8 @@ class Record extends React.Component {
         <Form.Label style={{marginRight:"10px"}}>Sort By Status: </Form.Label>
             <FormControl as="select" placeholder="Sort By" className=" mr-sm-2" name="opsi" onChange={this.onChangeStatus}>
                 <option value ="2">Semua</option>
-                <option  value ="1" >Senjata Masuk</option>
-                <option  value ="0" >Senjata Keluar</option>
+                <option value ="1" >Senjata Masuk</option>
+                <option value ="0" >Senjata Keluar</option>
             </FormControl>
         </Form>
             <Table striped bordered hover>

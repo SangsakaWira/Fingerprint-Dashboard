@@ -23,7 +23,7 @@ class Navigation extends Component{
                 <Nav className="mr-auto">
                     <Nav.Link active={this.props.active === "record" ? true:false}><Link to="/record" activeClassName="current">All Records</Link></Nav.Link>
                     <Nav.Link active={this.props.active === "users" ? true:false}><Link to="/users">All Users</Link></Nav.Link>
-                    <Nav.Link active={this.props.active === "weapons" ? true:false}><Link to="/weapons">All Waepons</Link></Nav.Link>
+                    {/* <Nav.Link active={this.props.active === "weapons" ? true:false}><Link to="/weapons">All Waepons</Link></Nav.Link> */}
                 </Nav>
                 {/* <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
